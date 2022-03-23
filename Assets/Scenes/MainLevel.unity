@@ -215,7 +215,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _scorePerHit: 25
   _hitPoints: 4
-  _parent: {fileID: 414009517}
   _hitVFX: {fileID: 3200836327345539238, guid: dc5588c71b6254a48bf17e4553198b77, type: 3}
   _deathVFX: {fileID: 3200836327345539238, guid: b6bb3fb37f5592141986f5e097524b56, type: 3}
 --- !u!136 &199700484
@@ -344,11 +343,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 77e8bd6192ede9147b0d7da1be00ab3e, type: 3}
---- !u!4 &414009517 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 7062056542162291943, guid: 8aa18ca427dc97a49a9cd1ee441fe40b, type: 3}
-  m_PrefabInstance: {fileID: 7062056541769417802}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &597460268
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -473,7 +467,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _scorePerHit: 25
   _hitPoints: 4
-  _parent: {fileID: 414009517}
   _hitVFX: {fileID: 3200836327345539238, guid: dc5588c71b6254a48bf17e4553198b77, type: 3}
   _deathVFX: {fileID: 3200836327345539238, guid: b6bb3fb37f5592141986f5e097524b56, type: 3}
 --- !u!136 &1007294332
@@ -705,7 +698,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _scorePerHit: 25
   _hitPoints: 4
-  _parent: {fileID: 414009517}
   _hitVFX: {fileID: 3200836327345539238, guid: dc5588c71b6254a48bf17e4553198b77, type: 3}
   _deathVFX: {fileID: 3200836327345539238, guid: b6bb3fb37f5592141986f5e097524b56, type: 3}
 --- !u!95 &1282656346
@@ -855,7 +847,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _scorePerHit: 25
   _hitPoints: 4
-  _parent: {fileID: 414009517}
   _hitVFX: {fileID: 3200836327345539238, guid: dc5588c71b6254a48bf17e4553198b77, type: 3}
   _deathVFX: {fileID: 3200836327345539238, guid: b6bb3fb37f5592141986f5e097524b56, type: 3}
 --- !u!136 &1401421851
@@ -1105,7 +1096,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _scorePerHit: 25
   _hitPoints: 4
-  _parent: {fileID: 414009517}
   _hitVFX: {fileID: 3200836327345539238, guid: dc5588c71b6254a48bf17e4553198b77, type: 3}
   _deathVFX: {fileID: 3200836327345539238, guid: b6bb3fb37f5592141986f5e097524b56, type: 3}
 --- !u!1 &1668128109
@@ -1261,7 +1251,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _scorePerHit: 25
   _hitPoints: 4
-  _parent: {fileID: 414009517}
   _hitVFX: {fileID: 3200836327345539238, guid: dc5588c71b6254a48bf17e4553198b77, type: 3}
   _deathVFX: {fileID: 3200836327345539238, guid: b6bb3fb37f5592141986f5e097524b56, type: 3}
 --- !u!135 &1743700934
@@ -1326,7 +1315,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _scorePerHit: 25
   _hitPoints: 4
-  _parent: {fileID: 414009517}
   _hitVFX: {fileID: 3200836327345539238, guid: dc5588c71b6254a48bf17e4553198b77, type: 3}
   _deathVFX: {fileID: 3200836327345539238, guid: b6bb3fb37f5592141986f5e097524b56, type: 3}
 --- !u!136 &1747291004
@@ -1744,6 +1732,10 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7062056542162291942, guid: 8aa18ca427dc97a49a9cd1ee441fe40b, type: 3}
       propertyPath: m_Name
+      value: SpawnAtRuntime
+      objectReference: {fileID: 0}
+    - target: {fileID: 7062056542162291942, guid: 8aa18ca427dc97a49a9cd1ee441fe40b, type: 3}
+      propertyPath: m_TagString
       value: SpawnAtRuntime
       objectReference: {fileID: 0}
     - target: {fileID: 7062056542162291943, guid: 8aa18ca427dc97a49a9cd1ee441fe40b, type: 3}
