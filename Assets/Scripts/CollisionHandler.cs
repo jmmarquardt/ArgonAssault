@@ -1,6 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -27,7 +24,7 @@ public class CollisionHandler : MonoBehaviour
         _meshRenderer.enabled = false;
         _playerController.enabled = false;
         _boxCollider.enabled = false;
-        Invoke("ReloadLevel", _loadDelay);
+        Invoke(nameof(ReloadLevel), _loadDelay);
     }
 
     void ReloadLevel()

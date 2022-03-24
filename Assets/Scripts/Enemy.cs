@@ -7,7 +7,7 @@ public class Enemy : MonoBehaviour
     [Tooltip("How many points each hit earns")]
     [SerializeField] int _scorePerHit = 25;
 
-    [Tooltip("Each player laser shot removes one hitpoint")]
+    [Tooltip("Each player laser shot removes one hit point")]
     [SerializeField] int _hitPoints = 4;
     
     
@@ -25,19 +25,14 @@ public class Enemy : MonoBehaviour
         _spawnAtRuntime = GameObject.FindWithTag(SPAWN_AT_RUNTIME).transform;
     }
         
-    void Start ()
-    {
-        AddRigidBody();
-    } 
+    void Start () => AddRigidBody();
 
     void AddRigidBody()
     {
-        Rigidbody rigidbody = GetComponent<Rigidbody>();
-        if (rigidbody == null)
-        {
-            rigidbody = gameObject.AddComponent<Rigidbody>();
-            rigidbody.useGravity = false;
-        }
+        Rigidbody rigidBody = GetComponent<Rigidbody>();
+        if (rigidBody != null) return;
+        rigidBody = gameObject.AddComponent<Rigidbody>();
+        rigidBody.useGravity = false;
     }
     void OnParticleCollision(GameObject other) => ProcessHit();
 

@@ -36,6 +36,7 @@ public class PlayerController : MonoBehaviour
     [Tooltip("Add all player ship lasers here")]
     [SerializeField] GameObject[] _lasers;
     float _xThrow, _yThrow;
+    Vector3 _localPosition;
 
     void OnEnable ()
     {
@@ -51,46 +52,42 @@ public class PlayerController : MonoBehaviour
 
     void Update ()
     {
-        ProcessTranslation();
-        ProcessRotation();
+        _localPosition = transform.localPosition;
+        ProcessTranslation(_localPosition);
+        ProcessRotation(_localPosition);
         ProcessFiring();
     }
 
-    void ProcessTranslation ()
+    void ProcessTranslation (Vector3 localPosition)
     {
         _xThrow = _movement.ReadValue<Vector2>().x;
         _yThrow = _movement.ReadValue<Vector2>().y;
 
         float xOffset = _xThrow * _moveSpeed * Time.deltaTime;
-        float rawXPos = transform.localPosition.x + xOffset;
+        float rawXPos = localPosition.x + xOffset;
         float clampedXPos = Mathf.Clamp(rawXPos, -_xRange, _xRange);
 
         float yOffset = _yThrow * _moveSpeed * Time.deltaTime;
-        float rawYPos = transform.localPosition.y + yOffset;
+        float rawYPos = localPosition.y + yOffset;
         float clampedYPos = Mathf.Clamp(rawYPos, -_yRange, _yRange);
 
-        transform.localPosition = new Vector3(clampedXPos, clampedYPos, transform.localPosition.z);
+        transform.localPosition = new Vector3(clampedXPos, clampedYPos, localPosition.z);
     }
 
-    void ProcessRotation()
+    void ProcessRotation(Vector3 localPosition)
     {
         // pitch adjustments based on player position and controller input throw
         float pitchPosition = transform.localPosition.y * _pitchPositionFactor;
         float pitchControl = _yThrow * _pitchControlFactor;
 
         float pitch = pitchPosition + pitchControl;
-        float yaw = transform.localPosition.x * _yawPositionFactor;
+        float yaw = localPosition.x * _yawPositionFactor;
         float roll = _xThrow * _rollControlFactor;
 
         transform.localRotation = Quaternion.Euler(pitch, yaw, roll);
     }
 
-    void ProcessFiring()
-    {
-        bool isActive = Input.GetButton("Fire1") || _firing.ReadValue<float>() > 0.5;
-        
-        SetLasersActive(isActive);
-    }
+    void ProcessFiring() => SetLasersActive(Input.GetButton("Fire1") || _firing.ReadValue<float>() > 0.5);
 
     void SetLasersActive(bool isActive)
     {
